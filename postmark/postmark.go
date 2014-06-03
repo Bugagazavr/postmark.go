@@ -17,16 +17,21 @@ const (
 	DefaultHost = "api.postmarkapp.com"
 )
 
+type MailAddress struct {
+	Name    string
+	Address string
+}
+
 type Message struct {
-	From        *mail.Address
-	To          []*mail.Address
-	Cc          []*mail.Address
-	Bcc         []*mail.Address
+	From        *MailAddress
+	To          []*MailAddress
+	Cc          []*MailAddress
+	Bcc         []*MailAddress
 	Subject     string
 	Tag         string
 	HtmlBody    io.Reader
 	TextBody    io.Reader
-	ReplyTo     *mail.Address
+	ReplyTo     *MailAddress
 	Headers     mail.Header
 	Attachments []Attachment
 }
